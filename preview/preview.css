@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+/* Reset body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+body {
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+svg {
+    width: 1000px;  /* Adjusted width */
+    height: 300px;
+    overflow: visible; /* Ensures text is not cut */
+}
+
+/* Stretched text with proper sizing */
+.text-stroke, .text-fill {
+    font-family: 'Oswald', sans-serif;
+    font-size: 126px;  /* Large text */
+    font-weight: 200;  /* Reduced thickness */
+    transform: scaleX(2.8); /* Stretched text */
+    transform-origin: center;
+    letter-spacing: -8px; /* Decreased space between letters */
+}
+
+/* Outline effect with thinner stroke */
+.text-stroke {
+    fill: none;
+    stroke: white;
+    stroke-width: 1; /* Thinner stroke */
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 5s ease forwards; /* Faster text formation */
+}
+
+/* White fill comes from bottom */
+.text-fill {
+    fill: white;
+    stroke: none;
+    clip-path: inset(100% 0 0 0);
+    animation: fill 1s ease forwards 1.5s; /* Faster fill */
+}
+
+@keyframes draw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes fill {
+    to { clip-path: inset(0 0 0 0); }
+}
+
+/* Loading animation with smaller, faster blinking text */
+.loading-text {
+    font-size: 14px; /* Smaller text */
+    color: white;
+    opacity: 0.6;
+    margin-top: -85px; /* Closer to main text */
+    animation: blink 0.4s infinite alternate, fadeOut 0.5s forwards 3.5s;
+}
+
+@keyframes blink {
+    from { opacity: 0.6; }
+    to { opacity: 0.2; }
+}
+
+/* "Loading..." disappears after animation */
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+/* Responsive Styles */
+
+/* Tablets & smaller laptops */
+@media (max-width: 1024px) {
+    svg {
+        width: 900px;
+        height: 300px;
+    }
+    .text-stroke, .text-fill {
+        font-size: 100px;
+        transform: scaleX(2.5);
+        letter-spacing: -6px;
+    }
+    .loading-text {
+        margin-top: -70px;
+    }
+}
+
+/* Mobile landscape & small tablets */
+@media (max-width: 768px) {
+    svg {
+        width: 800px;  /* Decreased width */
+        height: 350px; /* Decreased height */
+    }
+    .text-stroke, .text-fill {
+        font-size: 90px;  /* Smaller text */
+        transform: scaleX(2); /* Less stretch */
+        letter-spacing: -3px; /* Adjusted spacing */
+    }
+    .loading-text {
+        font-size: 12px; /* Adjusted font size */
+        margin-top: -130px; /* Pushed closer to the main text */
+        position: relative; /* Ensure it's positioned relative to its container */
+        z-index: 1; /* Bring it above other elements if needed */
+    }
+}
+
+/* Mobile portrait (425px and smaller) */
+@media (max-width: 425px) {
+    svg {
+        width: 600px;  /* Further decrease */
+        height: 300px; /* Further decrease */
+    }
+    .text-stroke, .text-fill {
+        font-size: 70px;  /* Smaller text */
+        transform: scaleX(1.8); /* Less stretch */
+        letter-spacing: -1px; /* Adjusted spacing */
+    }
+    .loading-text {
+        font-size: 12px; /* Adjusted font size */
+        margin-top: -170px; /* Pushed closer to the main text */
+        position: relative; /* Ensure it's positioned relative to its container */
+        z-index: 1; /* Bring it above other elements if needed */
+    }
+}
+
+/* Extra small screens (375px and smaller) */
+@media (max-width: 376px) {
+    svg {
+        width: 600px;  /* Further decrease */
+        height: 300px; /* Further decrease */
+    }
+    .text-stroke, .text-fill {
+        font-size: 70px;  /* Smaller text */
+        transform: scaleX(1.8); /* Less stretch */
+        letter-spacing: -1px; /* Adjusted spacing */
+    }
+    .loading-text {
+        font-size: 10px; /* Adjusted font size */
+        margin-top: -125px; /* Fixed margin-top */
+        position: relative; /* Ensure it's positioned relative to its container */
+        z-index: 1; /* Bring it above other elements if needed */
+    }
+}
+/* Tiny screens (320px and smaller) */
+@media (max-width: 320px) {
+    svg {
+        width: 650px;
+        height: 300px;
+    }
+    .text-stroke, .text-fill {
+        font-size: 75px;
+        transform: scaleX(2);
+        letter-spacing: -2px;
+    }
+    .loading-text {
+        font-size: 10px;
+        margin-top: -120px;
+    }
+}
