@@ -113,23 +113,4 @@ To run this project locally, follow these steps:
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
-
----
-
-## Acknowledgments
-
-- Special thanks to [Pha5e](https://pha5e.com/) for the inspiration and reference design.
-- Thanks to the GSAP team for providing such a powerful animation library.
-
----
-
 Enjoy exploring the Studio Phase hero section recreation! 🚀
